@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--IMPORTANDO JQUERY DESDE CDNjQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!--IMPORTAMOS BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--IMPORTANDO IziToast-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css" integrity="sha512-DIW4FkYTOxjCqRt7oS9BFO+nVOwDL4bzukDyDtMO7crjUZhwpyrWBFroq+IqRe6VnJkTpRAS6nhDvf0w+wHmxg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--IMPORTANDO JQUERY VALIDATE      LIBRERIA-1-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+</head>
+<body>    
+    <header class="m-3 text-center">
+        <h1 class="display-4">Sistema de Reservas para Campistas</h1>        
+        <nav class="navbar bg-primary">
+            <form class="container-fluid justify-content-start">
+                <a href="/inicio/" class="btn btn-secondary me-2">Inicio</a>
+                <a href="/campista/" class="btn btn-secondary me-2">Crear Campistas</a>
+                <a href="/listadoCampista/" class="btn btn-secondary me-2">Lista de Campistas</a>
+                <a class="btn btn-secondary me-2" href="/reserva/"> Crear Reservas</a>
+                <a href="/listadoReserva/" class="btn btn-secondary me-2">Lista de Reservas</a>
+            </form>
+        </nav>
+    </header>
+        
+    {% block contenido %}
+    <!--AQUI VA EL CONTENIDO DE TODOS LOS ARCHIVO .html-->
+
+    {% endblock %}
+    <footer class="bg-primary mt-auto text-white text-center py-3">
+        <p class="mb-1">&copy; 2025 Sistema de Reservas para Campistas</p>
+        <p class="mb-0">Desarrollado por Stalin Manobanda & Evelyn Arequipa</p>
+    </footer>
+</body>
+</html>

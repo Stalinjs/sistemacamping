@@ -1,0 +1,40 @@
+{% extends "./plantilla.html" %}
+{% block contenido %}
+<div class="text-center">
+    <h2>LISTA DE RESERVAS</h2>
+</div>
+<table class="m-3 table table-bordered table-striped table-hover">
+    <br>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FECHA INICIO</th>
+            <th>FECHA FIN</th>
+            <th>CAMPISTA</th>
+            <th>TIPO ALOJAMIENTO</th>
+            <th>NÚMERO DE PERSONAS</th>
+            <th>ESTADO</th>
+            <th>OBSERVACIONES</th>
+            <th>ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reserva in reserva %}
+            <tr>
+                <td>{{ reserva.id }}</td>
+                <td>{{ reserva.fecha_inicio }}</td>
+                <td>{{ reserva.fecha_fin }}</td>
+                <td>{{ reserva.campista.nombres}}</td>
+                <td>{{ reserva.tipo_alojamiento }}</td>
+                <td>{{ reserva.numero_personas }}</td>
+                <td>{{ reserva.estado_reserva }}</td>
+                <td>{{ reserva.observaciones|default:"-" }}</td>
+                <td>
+                    <a href="/editarReserva/{{reserva.id}}" class="btn btn-info">Editar</a>
+                    <a href="/eliminarReserva/{{reserva.id}}" class="btn btn-danger">Eliminar</a>               
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

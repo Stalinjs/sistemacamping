@@ -1,0 +1,66 @@
+{% extends "./plantilla.html"%}
+{% block contenido %}
+
+<div class="container mt-4">
+    <form action="/guardarReserva/" id="frm_nueva_reserva" method="post" class="p-4 border rounded bg-light">
+        <h3 class="mb-3 text-center">Crear Nueva Reserva</h3>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="txt_fechainicio" class="form-label"><b>Fecha de Inicio:</b></label>
+            <input type="date" name="txt_fechainicio" id="txt_fechainicio" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txt_fechafin" class="form-label"><b>Fecha de Fin:</b></label>
+            <input type="date" name="txt_fechafin" id="txt_fechafin" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txt_campista" class="form-label"><b>Campista:</b></label>
+            <select name="txt_campista" id="txt_campista" class="form-control" required>
+                <option value="">Seleccione un campista</option>
+                <!-- Aquí se cargan dinámicamente los campistas disponibles -->
+                {% for campista in campistas %}
+                    <option value="{{ campista.id }}">{{ campista.nombres }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txt_alojamiento" class="form-label"><b>Tipo de Alojamiento:</b></label>
+            <select name="txt_alojamiento" id="txt_alojamiento" class="form-control" required>
+                <option value="">Seleccione un tipo</option>
+                <option value="Tienda">Tienda</option>
+                <option value="Cabaña">Cabaña</option>
+                <option value="Caravana">Caravana</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txt_numero" class="form-label"><b>Número de Personas:</b></label>
+            <input type="number" name="txt_numero" id="txt_numero" class="form-control" min="1" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txt_estadoR" class="form-label"><b>Estado de la Reserva:</b></label>
+            <select name="txt_estadoR" id="txt_estadoR" class="form-control" required>
+                <option value="">Seleccione un estado</option>
+                <option value="Confirmada">Confirmada</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Cancelada">Cancelada</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="txt_observaciones" class="form-label"><b>Observaciones:</b></label>
+            <textarea name="txt_observaciones" id="txt_observaciones" class="form-control" rows="3"></textarea>
+        </div>
+        
+        <div class="text-center">
+            <button type="submit" class="btn btn-success me-2">Guardar</button>
+            <a href="/listadoReserva/" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

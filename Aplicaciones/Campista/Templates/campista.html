@@ -1,0 +1,29 @@
+{% extends "./plantilla.html"%}
+{% block contenido %}
+<div class="container mt-4">
+    <form action="/guardarCampista/" id="frm_nuevo_campista" method="post" class="p-4 border rounded bg-light">
+        <h3 class="mb-3 text-center">Agregar Nuevo Campista</h3>
+        {% csrf_token %}
+        <div class="mb-3"> 
+            <label for="txt_nombre" class="form-label"><b>NOMBRES:</b></label>
+            <input type="text" name="txt_nombre" id="txt_nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="txt_correo" class="form-label"><b>CORREO:</b></label>
+            <input type="email" name="txt_correo" id="txt_correo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="txt_telefono" class="form-label"><b>TELÉFONO:</b></label>
+            <input type="text" name="txt_telefono" id="txt_telefono" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="txt_direccion" class="form-label"><b>DIRECCION:</b></label>
+            <textarea name="txt_direccion" id="txt_direccion" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success me-2">Guardar</button>
+            <a href="/listadoCampista/" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

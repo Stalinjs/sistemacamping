@@ -1,0 +1,31 @@
+{% extends "./plantilla.html"%}
+{% block contenido %}
+<div class="container mt-4">
+    <form action="{% url 'edicion_campista' campista.id %}" id="frm_editar_campista" method="post" class="p-4 border rounded bg-light">
+        <h3 class="mb-3 text-center">Actualizar datos de campista</h3>
+        {% csrf_token %}
+        <input type="hidden" name="id"
+            value="{{campista.id}}">
+        <div class="mb-3"> 
+            <label for="txt_nombre" class="form-label"><b>NOMBRES:</b></label>
+            <input type="text" name="txt_nombre" value="{{campista.nombres}}" id="txt_nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="txt_correo" class="form-label"><b>CORREO:</b></label>
+            <input type="email" name="txt_correo" value="{{campista.correo}}" id="txt_correo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="txt_telefono" class="form-label"><b>TELÉFONO:</b></label>
+            <input type="text" name="txt_telefono" value="{{campista.telefono}}" id="txt_telefono" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="txt_direccion" class="form-label"><b>DIRECCION:</b></label>
+            <textarea name="txt_direccion" value="{{campista.direccion}}" id="txt_direccion" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success me-2">Guardar</button>
+            <a href="/listadoCampista/" class="btn btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
